@@ -14,7 +14,7 @@ $ code .
 ```
 * still in the CLI, create a Django app that will implement the main functionality
 ```
-python3 manage.py startapp main_app
+$ python3 manage.py startapp main_app
 ```
 * now, inside VS Code in **settings.py**, add main_app to the INSTALLED_APPS list
 ```
@@ -28,3 +28,8 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 ]
 ```
+* check that the project is up and running
+```
+$ python3 manage.py runserver
+```
+
