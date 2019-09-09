@@ -7,15 +7,16 @@ $ createdb <yourdatabasename>
 ```
 $ django-admin startproject <yourprojectname>
 ```
+* then
 ```
-cd <yourprojectname>
-code .
+$ cd <yourprojectname>
+$ code .
 ```
 * still in the CLI, create a Django app that will implement the main functionality
 ```
 python3 manage.py startapp main_app
 ```
-* now, inside VS Code in **settings.py**, add main_app to the INSTALLED_APPS list:
+* now, inside VS Code in **settings.py**, add main_app to the INSTALLED_APPS list
 ```
 INSTALLED_APPS = [
 	'main_app',
