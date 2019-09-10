@@ -70,14 +70,6 @@ urlpatterns = [
 
 ]
 ```
-* create the templates folder for main_app
-```
-$ mkdir main_app/templates
-```
-* add the **base.html** template
-```
-$ touch main_app/templates/base.html
-```
 * to set up styling with CSS, do the following
 ```
 $ mkdir main_app/static
@@ -100,6 +92,14 @@ footer {
     padding-top: 0;
     text-align: right;
 }
+```
+* create the templates folder for main_app
+```
+$ mkdir main_app/templates
+```
+* add the **base.html** template
+```
+$ touch main_app/templates/base.html
 ```
 * copy the following boilerplate Django Template Language (DTL) into **base.html**
 ```
@@ -184,9 +184,9 @@ $ touch main_app/templates/about.html
 * in **main_app/urls.py**, start building the about page route
 ```
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
     # Add the about page path
-    path('about/', views.about, name='about')
+    path('about/', views.about, name='about'),
 ]
 ```
 * define the about function below your import line in **main_app/views.py**
@@ -195,4 +195,5 @@ urlpatterns = [
 def about(request):
     return render(request, 'about.html')
 ```
+* to begin rendering your data in your web app, you should set up your model first
 
