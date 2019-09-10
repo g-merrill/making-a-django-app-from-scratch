@@ -7,14 +7,11 @@ $ createdb <yourdatabasename>
 ```
 $ django-admin startproject <yourprojectname>
 ```
-* then
+* create a Django app that will implement the main functionality and then open the project in VS Code
 ```
 $ cd <yourprojectname>
-$ code .
-```
-* still in the CLI, create a Django app that will implement the main functionality
-```
 $ python3 manage.py startapp main_app
+$ code .
 ```
 * now, inside VS Code in **settings.py**, add main_app to the INSTALLED_APPS list
 ```
