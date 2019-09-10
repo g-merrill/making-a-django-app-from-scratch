@@ -227,7 +227,7 @@ admin.site.register(Yourmodel)
 ```
 <li><a href="/about">About</a></li>
 <!-- new markup below -->
-<li><a href="/cats">View All Yourdataentities</a></li>
+<li><a href="/yourdataentities">View All Yourdataentities</a></li>
 ```
 * add the new route to **main_app/urls.py**
 ```
@@ -312,3 +312,4 @@ $ touch main_app/templates/yourdataentities/detail.html
 
 {% endblock %}
 ```
+cats
