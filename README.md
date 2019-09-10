@@ -221,4 +221,58 @@ from .models import Yourmodel
 # Register your models here
 admin.site.register(Yourmodel)
 ```
-* go to localhost:8000/admin to log in to the awesome Django admin portal!
+* go to localhost:8000/admin to log in to the awesome Django admin portal and add some data!
+* once you've entered some data in to your database, start to create an index view 
+* add a **View All Yourdataentities** link to the navigation bar in **base.html**
+```
+<li><a href="/about">About</a></li>
+<!-- new markup below -->
+<li><a href="/cats">View All Yourdataentities</a></li>
+```
+* add the new route to **main_app/urls.py**
+```
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    # route for yourdataentities index
+    path('yourdataentities/', views.yourdataentities_index, name='index'),
+]
+```
+* import the Model you created into **views.py** and type the yourdataentities_index function
+```
+from django.shortcuts import render
+# import the model here
+from .models import Yourdataentity
+
+...
+
+# define the index view
+def yourdataentities_index(request):
+    yourdataentities = Yourdataentity.objects.all()
+    return render(request, 'yourdataentities/index.html', { 'yourdataentities': yourdataentities })
+```
+* add the corresponding templates
+```
+$ mkdir main_app/templates/yourdataentities
+$ touch main_app/templates/yourdataentities/index.html
+```
+* in **yourdataentities/index.html**, add
+```
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Yourdataentity List</h1>
+
+{% for yourdataentity in yourdataentities %}
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ yourdataentity.name }}</span>
+        <p>Species: {{ yourdataentity.species }}</p>
+        <p>Description: {{ yourdataentity.description }}</p>
+        <p>Age: {{ yourdataentity.age }}</p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+```
