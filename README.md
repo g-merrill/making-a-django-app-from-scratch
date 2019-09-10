@@ -49,7 +49,7 @@ $ python3 manage.py migrate
 ```
 $ touch main_app/urls.py
 ```
-* in the project's __*>yourprojectname<*/urls.py__
+* in the project's __*yourprojectname*/urls.py__
 ```
 from django.contrib import admin
 # Add the include function to the import
@@ -59,5 +59,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # In this case '' represents the root route
     path('', include('main_app.urls')),
+]
+```
+* in **main_app/urls.py**, add the boilerplate
+```
+from django.urls import path
+from . import views
+
+urlpatterns = [
+
 ]
 ```
