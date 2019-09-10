@@ -312,4 +312,3 @@ $ touch main_app/templates/yourdataentities/detail.html
 
 {% endblock %}
 ```
-cats
