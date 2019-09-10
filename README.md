@@ -242,13 +242,13 @@ urlpatterns = [
 ```
 from django.shortcuts import render
 # import the model here
-from .models import Yourdataentity
+from .models import Yourmodel
 
 ...
 
 # define the index view
 def yourdataentities_index(request):
-    yourdataentities = Yourdataentity.objects.all()
+    yourdataentities = Yourmodel.objects.all()
     return render(request, 'yourdataentities/index.html', { 'yourdataentities': yourdataentities })
 ```
 * add the corresponding templates
