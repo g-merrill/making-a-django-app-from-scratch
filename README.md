@@ -1,7 +1,3 @@
-* create your database
-```
-$ createdb <yourdatabasename>
-```
 * cd into the local containing folder where you wish to create your app
 * initialize a Django project folder
 ```
@@ -24,19 +20,6 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 ]
-```
-* also in **settings.py**, change the DATABASES dictionary default ENGINE to postgreSQL and update NAME
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '<yourdatabasename>',
-    }
-}
-```
-* the following will test the database connection and avoid any red 'unapplied migration' message
-```
-$ python3 manage.py migrate
 ```
 * after typing the following, check that the project is up and running on localhost:8000
 ```
@@ -191,6 +174,19 @@ urlpatterns = [
 # Define the about view
 def about(request):
     return render(request, 'about.html')
+```
+* create your database
+```
+$ createdb <yourdatabasename>
+```
+* in **settings.py**, change the DATABASES dictionary default ENGINE to postgreSQL and update NAME
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '<yourdatabasename>',
+    }
+}
 ```
 * to begin rendering your data in your web app, you should set up your model first
 * in the **main_app**'s **models.py** file, create a basic model for your data entity
