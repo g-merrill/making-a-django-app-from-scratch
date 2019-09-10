@@ -42,10 +42,6 @@ $ python3 manage.py migrate
 ```
 $ python3 manage.py runserver
 ```
-* set up **main_app**'s own **urls.py**
-```
-$ touch main_app/urls.py
-```
 * in the project's __*yourprojectname*/urls.py__
 ```
 from django.contrib import admin
@@ -57,6 +53,10 @@ urlpatterns = [
     # In this case '' represents the root route
     path('', include('main_app.urls')),
 ]
+```
+* set up **main_app**'s own **urls.py**
+```
+$ touch main_app/urls.py
 ```
 * in **main_app/urls.py**, add the following boilerplate for now
 ```
