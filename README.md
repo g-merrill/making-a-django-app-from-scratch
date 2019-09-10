@@ -261,9 +261,46 @@ $ touch main_app/templates/yourdataentities/index.html
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Yourdataentity List</h1>
+<h1>Yourdataentities List</h1>
 
 {% for yourdataentity in yourdataentities %}
+<div class="card">
+    <a href="{% url 'detail' yourdataentity.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ yourdataentity.name }}</span>
+        </div>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock %}
+```
+* now add the 'detail' route, since you preemptively referenced it in your index template 
+* in **urls.py**, add
+```
+urlpatterns = [
+    ...
+    path('yourdataentities/<int:yourdataentity_id>/', views.yourdataentities_detail, name='detail'),
+]
+```
+* now to define the detail function in **views.py**
+```
+...
+def yourdataentities_detail(request, yourdataentity_id):
+    yourdataentity = Yourmodel.objects.get(id=yourdataentity_id)
+    return render(request, 'yourdataentities/detail.html', { 'yourdataentity': yourdataentity })
+```
+* create the template called **detail.html**
+```
+$ touch main_app/templates/yourdataentities/detail.html
+```
+* inside **yourdataentities/detail.html** add the following template code
+```
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Yourdataentity Details</h1>
+
 <div class="card">
     <div class="card-content">
         <span class="card-title">{{ yourdataentity.name }}</span>
@@ -272,7 +309,6 @@ $ touch main_app/templates/yourdataentities/index.html
         <p>Age: {{ yourdataentity.age }}</p>
     </div>
 </div>
-{% endfor %}
 
 {% endblock %}
 ```
