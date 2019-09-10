@@ -61,12 +61,18 @@ urlpatterns = [
     path('', include('main_app.urls')),
 ]
 ```
-* in **main_app/urls.py**, add the boilerplate
+* in **main_app/urls.py**, add the following
 ```
 from django.urls import path
 from . import views
 
 urlpatterns = [
-
+    path('', views.home, name='home')
 ]
+```
+* define the home function below your import line in **main_app/views.py**
+```
+# Define the home view
+def home(request):
+    return render(request, 'home.html')
 ```
