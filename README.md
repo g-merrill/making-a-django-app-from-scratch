@@ -193,4 +193,36 @@ def about(request):
     return render(request, 'about.html')
 ```
 * to begin rendering your data in your web app, you should set up your model first
+* in the **main_app**'s **models.py** file, create a basic model for your data entity
+```
+class Yourmodel(models.Model):
+    name = models.CharField(max_length=100)
+    species = models.CharField(max_length=100)
+    description = models.TextField(max_length=250)
+    age = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.name} ({self.id})'
+```
+* remember that anytime you add or change the model schema in this file, you have to make migrations and then migrate
+* to do so for this first time set up, type the following in the CLI
+```
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+```
+* the easiest way to CRUD your data entities is as a Django admin!
+```
+$ python3 manage.py createsuperuser
+```
+* if you press enter, you can use the default username, and also skip the email address
+* you must create and confirm a password (the CLI wont show the password characters as you type them)
+* register the model that you just made, by going to the **main_app/admin.py** file and adding
+```
+from django.contrib import admin
+# import your models here
+from .models import Yourmodel
+
+# Register your models here
+admin.site.register(Yourmodel)
+```
+* go to localhost:8000/admin to log in to the awesome Django admin portal!
