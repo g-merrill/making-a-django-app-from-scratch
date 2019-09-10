@@ -25,7 +25,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 ]
 ```
-* check that the project is up and running
+* after typing the following, check that the project is up and running on localhost:8000
 ```
 $ python3 manage.py runserver
 ```
