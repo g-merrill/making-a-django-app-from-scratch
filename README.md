@@ -25,11 +25,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 ]
 ```
-* after typing the following, check that the project is up and running on localhost:8000
-```
-$ python3 manage.py runserver
-```
-* in **settings.py**, change the DATABASES dictionary default ENGINE to postgreSQL and update NAME
+* also in **settings.py**, change the DATABASES dictionary default ENGINE to postgreSQL and update NAME
 ```
 DATABASES = {
     'default': {
@@ -38,9 +34,13 @@ DATABASES = {
     }
 }
 ```
-* the following will test the database connection and get rid of the red unapplied migration message
+* the following will test the database connection and avoid any red 'unapplied migration' message
 ```
 $ python3 manage.py migrate
+```
+* after typing the following, check that the project is up and running on localhost:8000
+```
+$ python3 manage.py runserver
 ```
 * set up **main_app**'s own **urls.py**
 ```
